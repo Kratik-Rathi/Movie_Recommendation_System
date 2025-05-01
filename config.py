@@ -1,16 +1,8 @@
-import os
 import streamlit as st
-
-# Detect if we're on Streamlit Cloud
-on_cloud = "STREAMLIT_ENVIRONMENT" in os.environ or "STREAMLIT_RUNTIME" in os.environ
-
-if not on_cloud:
-    from dotenv import load_dotenv
-    load_dotenv()
 
 
 def get_secret(key):
-    return st.secrets[key] if on_cloud else os.getenv(key)
+    return st.secrets[key]
 
 
 # Database
