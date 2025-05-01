@@ -9,7 +9,8 @@ def connect_to_db():
             user=DB_USER,
             password=DB_PASSWORD,
             host=DB_HOST,
-            port=DB_PORT
+            port=DB_PORT,
+            sslmode='require'
         )
     except Exception as e:
         raise ConnectionError(f"❌ Failed to connect to database: {e}")
